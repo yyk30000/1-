@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class RecipeTipsVO {
 	
-	private int tip_code;123
+	private int tip_code;
 	private int cooking_order;
 	private String m_id;
 	private Date reg_date;
