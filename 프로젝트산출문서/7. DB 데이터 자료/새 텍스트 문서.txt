@@ -3,5 +3,5 @@
 =======
 test5125125125
 수정했어요
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-6/5NK.git
+
 pullpull하세요
