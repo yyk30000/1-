@@ -1,4 +1,4 @@
-﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
 
 -- members Table Create SQL
 CREATE TABLE members
@@ -19,18 +19,18 @@ ALTER TABLE members COMMENT '회원 정보';
 -- recipe_basics Table Create SQL
 CREATE TABLE recipe_basics
 (
-    `rcp_code`          INT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '레시피 코드', 
-    `rcp_name`          VARCHAR(20)     NOT NULL    COMMENT '레시피 이름', 
-    `rcp_desc`          VARCHAR(150)    NOT NULL    COMMENT '레시피 간략소개', 
-    `rcp_t_code`        INT             NOT NULL    COMMENT '레시피 유형코드', 
-    `rcp_cooking_time`  VARCHAR(20)     NOT NULL    COMMENT '레시피 조리시간', 
-    `rcp_t`             VARCHAR(20)     NOT NULL    COMMENT '레시피 유형분류', 
-    `rcp_calory`        VARCHAR(20)     NOT NULL    COMMENT '레시피 칼로리', 
-    `rcp_size`          VARCHAR(20)     NOT NULL    COMMENT '레시피 분량', 
-    `rcp_level`         INT             NOT NULL    COMMENT '레시피 난이도', 
-    `rcp_pic1`          VARCHAR(150)    NULL        COMMENT '레시피 이미지1', 
-    `reg_date`          DATETIME        NOT NULL    COMMENT '작성일자', 
-    `m_id`              VARCHAR(20)     NOT NULL    COMMENT '회원 아이디', 
+    `rcp_code`          INT UNSIGNED      NOT NULL    AUTO_INCREMENT COMMENT '레시피 코드', 
+    `rcp_name`          VARCHAR(20)       NOT NULL    COMMENT '레시피 이름', 
+    `rcp_decs`          VARCHAR(150)      NOT NULL    COMMENT '레시피 간략소개', 
+    `rcp_t_code`        INT               NOT NULL    COMMENT '레시피 유형코드', 
+    `rcp_cooking_time`  VARCHAR(20)       NOT NULL    COMMENT '레시피 조리시간', 
+    `rcp_t`             VARCHAR(20)       NOT NULL    COMMENT '레시피 유형분류', 
+    `rcp_calory`        DECIMAL(10, 1)    NOT NULL    COMMENT '레시피 칼로리', 
+    `rcp_size`          DECIMAL(10, 1)    NOT NULL    COMMENT '레시피 분량', 
+    `rcp_level`         INT               NOT NULL    COMMENT '레시피 난이도', 
+    `rcp_pic1`          VARCHAR(150)      NULL        COMMENT '레시피 이미지1', 
+    `reg_date`          DATETIME          NOT NULL    COMMENT '작성일자', 
+    `m_id`              VARCHAR(20)       NOT NULL    COMMENT '회원 아이디', 
      PRIMARY KEY (rcp_code)
 );
 
@@ -89,12 +89,12 @@ ALTER TABLE recipe_cookings
 -- recipe_ingredients Table Create SQL
 CREATE TABLE recipe_ingredients
 (
-    `ingre_code`    INT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '재료 코드', 
-    `rcp_code`      INT UNSIGNED    NOT NULL    COMMENT '레시피 코드', 
-    `ingre_name`    VARCHAR(150)    NOT NULL    COMMENT '재료 명', 
-    `ingre_weight`  VARCHAR(20)     NULL        COMMENT '재료 용량', 
-    `ingre_t_code`  INT             NOT NULL    COMMENT '재료 타입 코드', 
-    `ingre_t_name`  VARCHAR(20)     NOT NULL    COMMENT '재료 타입 명', 
+    `ingre_code`    INT UNSIGNED      NOT NULL    AUTO_INCREMENT COMMENT '재료 코드', 
+    `rcp_code`      INT UNSIGNED      NOT NULL    COMMENT '레시피 코드', 
+    `ingre_name`    VARCHAR(150)      NOT NULL    COMMENT '재료 명', 
+    `ingre_weight`  DECIMAL(10, 1)    NOT NULL    COMMENT '재료 용량', 
+    `ingre_t_code`  INT               NOT NULL    COMMENT '재료 타입 코드', 
+    `ingre_t_name`  VARCHAR(20)       NOT NULL    COMMENT '재료 타입 명', 
      PRIMARY KEY (ingre_code)
 );
 
@@ -108,19 +108,16 @@ ALTER TABLE recipe_ingredients
 -- alternative_ingredients Table Create SQL
 CREATE TABLE alternative_ingredients
 (
-    `alt_ingre_code`  INT UNSIGNED     NOT NULL    AUTO_INCREMENT COMMENT '대체 식재료 코드', 
-    `raw_ingre_name`  VARCHAR(20)      NOT NULL    COMMENT '원재료 명', 
-    `alt_ingre_name`  VARCHAR(20)      NOT NULL    COMMENT '대체재료 명', 
-    `brief_desc`      VARCHAR(2000)    NULL        COMMENT '요약설명', 
-    `reg_date`        DATETIME         NOT NULL    COMMENT '작성 일자', 
-    `m_id`            VARCHAR(20)      NOT NULL    COMMENT '회원 아이디'
+    `alt_ingre_code`    INT UNSIGNED     NOT NULL    AUTO_INCREMENT COMMENT '대체 식재료 코드', 
+    `raw_ingre_name`    VARCHAR(20)      NOT NULL    COMMENT '원재료 명', 
+    `alter_ingre_name`  VARCHAR(20)      NOT NULL    COMMENT '대체재료 명', 
+    `brief_desc`        VARCHAR(2000)    NULL        COMMENT '요약설명', 
+    `reg_date`          DATETIME         NOT NULL    COMMENT '작성 일자', 
+    `m_id`              VARCHAR(20)      NOT NULL    COMMENT '회원 아이디', 
+     PRIMARY KEY (alt_ingre_code)
 );
 
 ALTER TABLE alternative_ingredients COMMENT '대체 식재료 정보';
-
-ALTER TABLE alternative_ingredients
-    ADD CONSTRAINT FK_alternative_ingredients_m_id_members_m_id FOREIGN KEY (m_id)
-        REFERENCES members (m_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 
 -- recipe_tips Table Create SQL
@@ -198,7 +195,7 @@ CREATE TABLE alternative_ingredients_link
      PRIMARY KEY (link_code)
 );
 
-ALTER TABLE alternative_ingredients_link COMMENT '대체 재료 링크';
+ALTER TABLE alternative_ingredients_link COMMENT '재료 정보 링크';
 
 ALTER TABLE alternative_ingredients_link
     ADD CONSTRAINT FK_alternative_ingredients_link_ingre_code_recipe_ingredients_in FOREIGN KEY (ingre_code)
