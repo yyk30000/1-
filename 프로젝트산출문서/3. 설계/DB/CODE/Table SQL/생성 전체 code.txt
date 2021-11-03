@@ -64,7 +64,7 @@ ALTER TABLE articles
 -- recipe_cookings Table Create SQL
 CREATE TABLE recipe_cookings
 (
-    `cooking_code`     INT UNSIGNED     NOT NULL    COMMENT '조리 과정 코드', 
+    `cooking_code`     INT UNSIGNED     NOT NULL    AUTO_INCREMENT COMMENT '조리 과정 코드', 
     `rcp_code`         INT UNSIGNED     NOT NULL    COMMENT '레시피 코드', 
     `cooking_order`    INT UNSIGNED     NOT NULL    COMMENT '요리 순서', 
     `cooking_content`  VARCHAR(2000)    NOT NULL    COMMENT '요리 설명', 
