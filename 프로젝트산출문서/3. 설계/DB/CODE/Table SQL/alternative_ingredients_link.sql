@@ -1,4 +1,3 @@
--- CHARACTER SET euckr; 인코딩 오류시 사용
 
 select * from alternative_ingredients_link;
 

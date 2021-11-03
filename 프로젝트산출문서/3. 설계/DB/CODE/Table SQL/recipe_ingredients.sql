@@ -3,6 +3,7 @@ load data
 infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/recipe_ingredients.csv' 
 into table recipe_ingredients
 fields terminated by','
+LINES TERMINATED BY '\r' -- '\r' 제외
 ignore 1 rows;
 
 -- CHARACTER SET euckr; 인코딩 오류 시 사용
