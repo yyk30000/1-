@@ -21,7 +21,7 @@ CREATE TABLE recipe_basics
 (
     `rcp_code`          INT UNSIGNED    NOT NULL    COMMENT '레시피 코드', 
     `rcp_name`          VARCHAR(20)     NOT NULL    COMMENT '레시피 이름', 
-    `rcp_decs`          VARCHAR(150)    NOT NULL    COMMENT '레시피 간략소개', 
+    `rcp_desc`          VARCHAR(150)    NOT NULL    COMMENT '레시피 간략소개', 
     `rcp_t_code`        INT             NOT NULL    COMMENT '레시피 유형코드', 
     `rcp_cooking_time`  VARCHAR(20)     NOT NULL    COMMENT '레시피 조리시간', 
     `rcp_t`             VARCHAR(20)     NOT NULL    COMMENT '레시피 유형분류', 

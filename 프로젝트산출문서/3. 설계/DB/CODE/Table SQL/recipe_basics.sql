@@ -4,20 +4,21 @@ infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/recipe_basics.csv'
 into table recipe_basics
 CHARACTER SET euckr
 fields terminated by','
-LINES TERMINATED BY '\r' -- '\r' 제외
+LINES TERMINATED BY '\r\n' -- '\r' 제외
 ignore 1 rows;
 
 -- CHARACTER SET euckr; 인코딩 오류시 사용
+SET FOREIGN_KEY_CHECKS = 1;
 
 select * from recipe_basics;
 
 drop table recipe_basics;
 
-CREATE TABLE recipe_basics
+cREATE TABLE recipe_basics
 (
     `rcp_code`          INT UNSIGNED    NOT NULL    COMMENT '레시피 코드', 
     `rcp_name`          VARCHAR(20)     NOT NULL    COMMENT '레시피 이름', 
-    `rcp_decs`          VARCHAR(150)    NOT NULL    COMMENT '레시피 간략소개', 
+    `rcp_desc`          VARCHAR(150)    NOT NULL    COMMENT '레시피 간략소개', 
     `rcp_t_code`        INT             NOT NULL    COMMENT '레시피 유형코드', 
     `rcp_cooking_time`  VARCHAR(20)     NOT NULL    COMMENT '레시피 조리시간', 
     `rcp_t`             VARCHAR(20)     NOT NULL    COMMENT '레시피 유형분류', 
