@@ -1,13 +1,14 @@
 -- 검색리스트 뷰 (요리명)
-select rb.rcp_code,rcp_name,rb.rcp_decs,rb.rcp_t,rb.rcp_calory,rb.rcp_size,rcp_level,rcp_pic1
+select rb.rcp_code,rcp_name,rb.rcp_desc,rb.rcp_t,rb.rcp_calory,rb.rcp_size,rcp_level,rcp_pic1
 from recipe_basics rb
 where rb.rcp_name like("%비빔밥%");
 
 
 -- 기본 정보 뷰 rcp_decs 컬럼명 수정후 쿼리문 수정 필요
-select rb.rcp_code,rcp_name,rb.rcp_decs,rb.rcp_t,rb.rcp_calory,rb.rcp_size,rcp_level,rcp_pic1
+select rb.rcp_code,rcp_name,rb.rcp_desc,rb.rcp_t,rb.rcp_calory,rb.rcp_size,rcp_level,rcp_pic1
 from recipe_basics rb
 where rb.rcp_code = 90818;
+
 -- 재료 뷰
 select ri.rcp_code ,ri.ingre_name,ri.ingre_weight,ri.ingre_t_name 
 from recipe_ingredients ri
