@@ -16,7 +16,12 @@ where ri.rcp_code = 90818;
 -- 조리과정뷰
 select rc.rcp_code,rc.cooking_order,rc.cooking_content,rc.cooking_img1,rc.cooking_tip
 from recipe_cookings rc
-where rc.rcp_code = 90818 order by rc.cooking_order;
+where rc.rcp_code = 1 order by rc.cooking_order;
+
+-- 조리과정별 댓글
+select rc.cooking_code,rc.cooking_order,rc.cooking_content,rc.cooking_img1,rc.cooking_tip,rt.user_tip
+from recipe_tips rt ,recipe_cookings rc
+where rc.cooking_code =rt.cooking_code and rc.rcp_code = 1 order by rc.cooking_order;
 
 -- 통합뷰 -대체식재료
 select ri.rcp_code, ri.ingre_name, ai.alter_ingre_name,ai.brief_desc
