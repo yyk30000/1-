@@ -131,7 +131,8 @@ CREATE TABLE recipe_tips
     `cooking_code`  INT UNSIGNED     NOT NULL    COMMENT '조리 과정 코드', 
     `m_id`          VARCHAR(20)      NOT NULL    COMMENT '회원 아이디', 
     `reg_date`      DATETIME         NOT NULL    COMMENT '작성 일자', 
-    `user_tip`      VARCHAR(2000)    NOT NULL    COMMENT '작성자 과정 팁', 
+    `user_tip`      VARCHAR(2000)    NOT NULL       COMMENT '작성자 과정 팁', 
+    `rcp_code`      INT UNSIGNED     NOT NULL    COMMENT '레시피 코드', 
      PRIMARY KEY (tip_code)
 );
 
