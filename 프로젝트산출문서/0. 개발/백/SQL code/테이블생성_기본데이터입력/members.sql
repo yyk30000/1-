@@ -23,7 +23,7 @@ CREATE TABLE members
     `m_name`      VARCHAR(20)    NOT NULL    COMMENT '회원 이름', 
     `m_age`       INT            NOT NULL    COMMENT '회원 나이', 
     `m_gender`    VARCHAR(1)     NOT NULL    COMMENT '회원 성별', 
-    `m_joindate`  DATETIME       NOT NULL    COMMENT '가입 일자', 
+    `m_joindate`  DATETIME       NULL    COMMENT '가입 일자', 
     `admin_yn`    VARCHAR(1)     NOT NULL    COMMENT '관리자 여부', 
      PRIMARY KEY (m_id)
 );
