@@ -16,7 +16,7 @@ drop table alternative_ingredients_link;
 -- alternative_ingredients_link Table Create SQL
 CREATE TABLE alternative_ingredients_link
 (
-    `link_code`       INT UNSIGNED    NOT NULL    COMMENT '링크 코드', 
+    `link_code`       INT UNSIGNED    auto_increment NOT NULL    COMMENT '링크 코드', 
     `rcp_code`      INT UNSIGNED    NOT NULL    COMMENT '재료 코드', 
     `alt_ingre_code`  INT UNSIGNED    NOT NULL    COMMENT '대체 식재료 코드', 
      PRIMARY KEY (link_code)
