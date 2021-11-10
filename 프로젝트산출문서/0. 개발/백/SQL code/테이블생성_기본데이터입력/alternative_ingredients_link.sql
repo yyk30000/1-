@@ -17,7 +17,7 @@ drop table alternative_ingredients_link;
 CREATE TABLE alternative_ingredients_link
 (
     `link_code`       INT UNSIGNED    NOT NULL    COMMENT '링크 코드', 
-    `ingre_code`      INT UNSIGNED    NOT NULL    COMMENT '재료 코드', 
+    `rcp_code`      INT UNSIGNED    NOT NULL    COMMENT '재료 코드', 
     `alt_ingre_code`  INT UNSIGNED    NOT NULL    COMMENT '대체 식재료 코드', 
      PRIMARY KEY (link_code)
 );
@@ -25,8 +25,8 @@ CREATE TABLE alternative_ingredients_link
 ALTER TABLE alternative_ingredients_link COMMENT '재료 정보 링크';
 
 ALTER TABLE alternative_ingredients_link
-    ADD CONSTRAINT FK_alternative_ingredients_link_ingre_code_recipe_ingredients_in FOREIGN KEY (ingre_code)
-        REFERENCES recipe_ingredients (ingre_code) ON DELETE RESTRICT ON UPDATE RESTRICT;
+    ADD CONSTRAINT FK_alternative_ingredients_link_rcp_code_recipe_ingredients_in FOREIGN KEY (rcp_code)
+        REFERENCES recipe_basics (rcp_code) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 ALTER TABLE alternative_ingredients_link
     ADD CONSTRAINT FK_alternative_ingredients_link_alt_ingre_code_alternative_ingre FOREIGN KEY (alt_ingre_code)

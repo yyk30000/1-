@@ -16,7 +16,7 @@ drop table myrecipes;
 -- myrecipes Table Create SQL
 CREATE TABLE myrecipes
 (
-    `m_rcp_code`  INT UNSIGNED    NOT NULL    COMMENT '나의 레시피 코드', 
+    `m_rcp_code`  INT UNSIGNED    NOT NULL auto_increment    COMMENT '나의 레시피 코드', 
     `rcp_code`    INT UNSIGNED    NOT NULL    COMMENT '레시피 코드', 
     `m_id`        VARCHAR(20)     NOT NULL    COMMENT '회원 아이디', 
     `reg_date`    DATETIME        NOT NULL    COMMENT '작성 일자', 
